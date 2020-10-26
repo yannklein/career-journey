@@ -8,14 +8,23 @@
 import Vue from 'vue'
 import App from '../app.vue'
 
-document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    render: h => h(App)
-  }).$mount()
-  document.body.appendChild(app.$el)
+import VueApollo from 'vue-apollo'
+import { apolloCache, apolloClient } from '../utils/apollo';
+Vue.use(VueApollo)
 
-  console.log(app)
+const apolloProvider = new VueApollo({
+  defaultClient: apolloClient,
 })
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const app = new Vue({
+//     apolloProvider,
+//     render: h => h(App)
+//   }).$mount()
+//   document.body.appendChild(app.$el)
+
+//   console.log(app)
+// })
 
 
 // The above code uses Vue without the compiler, which means you cannot
@@ -53,20 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
 //
 // Then uncomment the code block below:
 //
-// import TurbolinksAdapter from 'vue-turbolinks'
+import TurbolinksAdapter from 'vue-turbolinks'
 // import Vue from 'vue/dist/vue.esm'
 // import App from '../app.vue'
-//
-// Vue.use(TurbolinksAdapter)
-//
-// document.addEventListener('turbolinks:load', () => {
-//   const app = new Vue({
-//     el: '#hello',
-//     data: () => {
-//       return {
-//         message: "Can you say hello?"
-//       }
-//     },
-//     components: { App }
-//   })
-// })
+
+Vue.use(TurbolinksAdapter)
+
+document.addEventListener('turbolinks:load', () => {
+  const app = new Vue({
+    apolloProvider,
+    render: h => h(App)
+  }).$mount()
+  document.body.appendChild(app.$el)
+
+  console.log(app)
+})
