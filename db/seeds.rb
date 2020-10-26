@@ -9,6 +9,15 @@ User.destroy_all
 Resource.destroy_all
 Step.destroy_all
 
+resource_type = {
+  video: "video",
+  document: "document",
+  website: "website",
+  book: "book",
+  slack: "slack",
+  other: "other"
+}
+
 puts "Steps/Resource creation"
 step1 = Step.create(
   title: "CV and Linkedin",
@@ -24,6 +33,7 @@ step1 = Step.create(
 )
 
 Resource.create(
+  res_type: resource_type[:document],
   name: "Build your CV",
   description: "Best practices to build a CV adapted to your job search.",
   url: "https://lewagon-alumni.slack.com/files/U4APKLFLM/FR5CCR0G5/cv_workshop.key?origin_team=T02NE0241&origin_channel=CV5L8RC3D",
@@ -31,6 +41,7 @@ Resource.create(
 )
 
 Resource.create(
+  res_type: resource_type[:document],
   name: "Refine your LinkedIn",
   description: "A set of advice to make your LinkedIn profile attractive.",
   url: "https://lewagon-alumni.slack.com/files/U4APKLFLM/FQXE4CKNV/linkedin_workshop.pptx?origin_team=T02NE0241&origin_channel=CV5L8RC3D",
@@ -38,6 +49,7 @@ Resource.create(
 )
 
 Resource.create(
+  res_type: resource_type[:website],
   name: "Career Playbook",
   description: "The official career playbook of Le Wagon, giving numerous tips to boost your career journey.",
   url: "https://github.com/lewagon/career",
@@ -59,6 +71,7 @@ step2 = Step.create(
 )
 
 Resource.create(
+  res_type: resource_type[:website],
   name: "Ankita Satija's page",
   description: "A killer example of portfolio page.",
   url: "https://www.ankitasatija.com/let-s-dutch",
@@ -66,6 +79,7 @@ Resource.create(
 )
 
 Resource.create(
+  res_type: resource_type[:website],
   name: "Thalida's page",
   description: "A killer example of portfolio page.",
   url: "https://thalida.me/x/meta-timeline/2018-01--2018-08?t=2018-06-09T20:40:00",
@@ -73,6 +87,7 @@ Resource.create(
 )
 
 Resource.create(
+  res_type: resource_type[:website],
   name: "Grace Yang's page",
   description: "A killer example of portfolio page.",
   url: "https://www.thegraceyang.com/",
