@@ -1,5 +1,5 @@
 class AddCurrentStepToUsers < ActiveRecord::Migration[6.0]
   def change
-    add_column :users, :current_step, :integer
+    add_reference :users, :step, foreign_key: true
   end
 end
