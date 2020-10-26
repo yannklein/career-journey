@@ -10,4 +10,15 @@ module Types
       "Hello World!"
     end
   end
+
+  class QueryType < Types::BaseObject
+    field :steps,
+          [Types::StepType],
+          null: false,
+          description: "Returns the list of career journey steps"
+
+    def steps
+      Step.all
+    end
+  end
 end
