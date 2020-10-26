@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   private
 
   def skip_pundit?
-    graphql_controller? || devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 end

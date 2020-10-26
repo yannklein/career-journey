@@ -2,6 +2,7 @@ class StepsController < ApplicationController
   before_action :get_step, only: :show
 
   def index
+    policy_scope(Step)
   end
 
   def show

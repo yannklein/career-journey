@@ -4,8 +4,8 @@ class GraphqlController < ApplicationController
   # but you'll have to authenticate your user separately
   # protect_from_forgery with: :null_session
   skip_before_action :authenticate_user!
-  # skip_after_action :verify_authorized
-  # skip_after_action :verify_policy_scoped
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
 
   def execute
     variables = prepare_variables(params[:variables])
@@ -51,7 +51,4 @@ class GraphqlController < ApplicationController
     render json: { errors: [{ message: e.message, backtrace: e.backtrace }], data: {} }, status: 500
   end
 
-  def graphql_controller?
-    true
-  end
 end
