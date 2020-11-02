@@ -1,37 +1,17 @@
 <template>
   <div id="app">
-    hi
-    <div v-for="step in steps" :key="step.id">
-      <div class="card">
-        Title:{{step.title}}
-        <hr>
-        Description: {{step.description}}
-      </div>
-    </div>
+    <SideBar></SideBar>
+    <div class="content"></div>
   </div>
 </template>
 
 <script>
-import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
+import SideBar from './SideBar.vue';
 
 export default {
-  data(){
-        return{
-            steps:'',
-        }
-  },
-  apollo:{
-    steps:{
-      query: gql`
-        query {
-          steps{
-            id
-            title
-            description
-          }
-        }
-      `,
-    }
+  components: {
+    SideBar
   }
 }
 </script>
@@ -40,5 +20,11 @@ export default {
 p {
   font-size: 2em;
   text-align: center;
+}
+.app {
+  display: flex;
+}
+.content {
+  flex-grow: 1;
 }
 </style>
