@@ -119,7 +119,7 @@ step3 = Step.create(
       - Take a screenshot of your products’ landing page.
       - Do a one paragraph write-up describing the challenges and solutions of the project. This can be as simple as the product card on the Kitt products page
       For bonus points: Take a video of your journey to upload to your site (this will be useful to share with potential clients too!)",
-  step_number: 3
+  step_number: 4
 )
 
 puts "User creation"
