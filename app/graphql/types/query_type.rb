@@ -9,7 +9,7 @@ module Types
           null: false,
           description: "Returns the list of users"
 
-    def steps(order_by:)
+    def steps(order_by: nil)
       # order_by = {step_number: :desc}
       order_by ? Step.order(order_by) : Step.all
     end
