@@ -4,7 +4,7 @@
       <a href="#" class="step-item">
         <div class="step-num">{{step.stepNumber}}</div>
         <div class="step-title">{{step.title}}</div>
-        <div v-if="step.stepNumber < me.step.stepNumber">✅</div>
+        <div v-if="step.stepNumber < currentStep.stepNumber">✅</div>
         <div v-else>◻️</div>
       </a>
     </div>
@@ -20,7 +20,7 @@ export default {
   data(){
     return{
         steps:[],
-        me: 0
+        currentStep: ''
     }
   },
   apollo:{
@@ -35,13 +35,11 @@ export default {
         }
       `,
     },
-    me:{
+    currentStep:{
       query: gql`
         {
-          me {
-            step {
-              stepNumber
-            }
+          currentStep {
+            stepNumber
           }
         }
       `,
