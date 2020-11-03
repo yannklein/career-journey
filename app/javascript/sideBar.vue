@@ -1,18 +1,19 @@
 <template>
   <div>
     <div class="step-list" v-for="step in steps" :key="step.id">
-      <a href="#" class="step-item">
+      <div class="step-item" @click="displayStep(step.id)">
         <div class="step-num">{{step.stepNumber}}</div>
         <div class="step-title">{{step.title}}</div>
         <div v-if="step.stepNumber < currentStep.stepNumber">✅</div>
         <div v-else>◻️</div>
-      </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import gql from 'graphql-tag';
+import { store } from "./store.js";
 
 export default {
 
@@ -21,6 +22,11 @@ export default {
     return{
         steps:[],
         currentStep: ''
+    }
+  },
+  methods: {
+    displayStep(id) {
+      store.setSelectedStepAction(id);
     }
   },
   apollo:{
@@ -56,7 +62,6 @@ export default {
   padding-right: 0;
   position: sticky;
   top: 0;
-  height: 100%;
   z-index: 50;
   margin: 16px;
 }
@@ -71,7 +76,7 @@ export default {
   font-size: 20px;
   background-color: white;
   margin: 8px;
-  text-decoration: none;
+  cursor: pointer;
 }
 .step-title {
   flex-grow: 1;

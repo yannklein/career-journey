@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <SideBar></SideBar>
-    <div class="content"></div>
+    <StepContent></StepContent>
   </div>
 </template>
 
 <script>
 // import gql from 'graphql-tag';
 import SideBar from './SideBar.vue';
+import StepContent from './StepContent.vue';
 
 export default {
   components: {
-    SideBar
+    SideBar,
+    StepContent
   }
 }
 </script>
@@ -21,10 +23,7 @@ p {
   font-size: 2em;
   text-align: center;
 }
-.app {
+#app {
   display: flex;
-}
-.content {
-  flex-grow: 1;
 }
 </style>
