@@ -15,7 +15,7 @@ module Types
       description "Returns the list of users"
     end
 
-    field :me, Types::UserType, null: true
+    field :current_step, Types::StepType, null: true
 
     def steps(order_by: nil)
       # order_by = {step_number: :desc}
@@ -31,8 +31,8 @@ module Types
       User.all
     end
 
-    def me
-      context[:current_user]
+    def current_step
+      context[:current_user].step
     end
   end
 end
