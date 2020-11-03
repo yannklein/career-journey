@@ -8,7 +8,7 @@ module Types
 
     field :step, Types::StepType, null: false do
       description "Returns one career journey steps"
-      argument :stepId, Integer, required: true
+      argument :stepId, String, required: true
     end
 
     field :users, [Types::UserType], null: false do
@@ -23,7 +23,7 @@ module Types
       order_by ? Step.order(order_by) : Step.all
     end
 
-    def step(stepId: 0)
+    def step(stepId: "0")
       Step.find(stepId)
     end
 

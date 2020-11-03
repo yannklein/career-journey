@@ -1,7 +1,7 @@
 export const store = {
   debug: true,
   state: {
-    selectedStep: 1
+    selectedStep: "9"
   },
   setSelectedStepAction (newValue) {
     if (this.debug) console.log('setSelectedStepAction triggered with', newValue)
@@ -9,6 +9,6 @@ export const store = {
   },
   clearSelectedStepAction () {
     if (this.debug) console.log('clearSelectedStepAction triggered')
-    this.state.selectedStep = 1
+    this.state.selectedStep = "9"
   }
 }

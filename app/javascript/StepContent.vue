@@ -1,7 +1,9 @@
 <template>
   <div class="main-container">
-    <h1>Hello</h1>
-    <h1>{{storeState.selectedStep}}</h1>
+    <div v-if="step">
+      <h1>Step {{step.stepNumber}}: {{step.title}}</h1>
+      <template v-for="line in step.description.split('\n')">{{line}}<br></template>
+    </div>
   </div>
 </template>
 
@@ -9,26 +11,45 @@
 import gql from 'graphql-tag';
 import { store } from "./store.js";
 
-console.log(store);
-
 export default {
 
   name: 'StepContent',
   data(){
     return{
         storeState: store.state,
-        steps:[],
-        me: ''
+        step: null
     }
   },
-  apollo:{
-    steps:{
-      query: gql`
+  watch: {
+    'storeState.selectedStep': function () {
+      console.log("hop", this.storeState.selectedStep);
+      const thisStep = this.storeState.selectedStep;
+      this.$apollo.query({
+        query: gql`
         {
-          steps(orderBy: "step_number asc"){
+          step(stepId: "${thisStep}"){
             id
             stepNumber
             title
+            description
+          }
+        }`
+      }).then(result => {
+        console.log("step: ", result.data.step);
+        console.log("thisstep: ", this.step);
+        this.step = result.data.step;
+      });
+    }
+  },
+  apollo:{
+    step:{
+      query: gql`
+        {
+          step(stepId: "${store.state.selectedStep}"){
+            id
+            stepNumber
+            title
+            description
           }
         }
       `,

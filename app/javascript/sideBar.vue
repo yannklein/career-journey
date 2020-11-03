@@ -4,6 +4,7 @@
       <div class="step-item" @click="displayStep(step.id)">
         <div class="step-num">{{step.stepNumber}}</div>
         <div class="step-title">{{step.title}}</div>
+        <!-- <div>{{step.stepNumber}}{{currentStep.stepNumber}}</div> -->
         <div v-if="step.stepNumber < currentStep.stepNumber">✅</div>
         <div v-else>◻️</div>
       </div>
@@ -21,7 +22,7 @@ export default {
   data(){
     return{
         steps:[],
-        currentStep: ''
+        currentStep: '0'
     }
   },
   methods: {
@@ -45,6 +46,7 @@ export default {
       query: gql`
         {
           currentStep {
+            id
             stepNumber
           }
         }
