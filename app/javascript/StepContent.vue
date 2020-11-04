@@ -2,7 +2,7 @@
   <div class="main-container">
     <div v-if="step">
       <h1>Step {{step.stepNumber}}: {{step.title}}</h1>
-      <template v-for="line in step.description.split('\n')">{{line}}<br></template>
+      <markdown-it-vue class="md-body" :content="step.description" />
     </div>
   </div>
 </template>
@@ -10,10 +10,15 @@
 <script>
 import gql from 'graphql-tag';
 import { store } from "./store.js";
+import MarkdownItVue from 'markdown-it-vue'
+import 'markdown-it-vue/dist/markdown-it-vue.css'
 
 export default {
 
   name: 'StepContent',
+  components: {
+    MarkdownItVue
+  },
   data(){
     return{
         storeState: store.state,
@@ -22,7 +27,6 @@ export default {
   },
   watch: {
     'storeState.selectedStep': function () {
-      console.log("hop", this.storeState.selectedStep);
       const thisStep = this.storeState.selectedStep;
       this.$apollo.query({
         query: gql`
@@ -35,8 +39,6 @@ export default {
           }
         }`
       }).then(result => {
-        console.log("step: ", result.data.step);
-        console.log("thisstep: ", this.step);
         this.step = result.data.step;
       });
     }
@@ -61,5 +63,9 @@ export default {
 <style lang="css" scoped>
 .main-container {
   flex-grow: 1;
+  width: 100%;
+}
+.main-container h1 {
+  margin-bottom: 24px;
 }
 </style>
