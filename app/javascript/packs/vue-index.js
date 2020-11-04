@@ -6,7 +6,7 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue'
-import App from '../App.vue'
+import App from './App.vue'
 
 import VueApollo from 'vue-apollo'
 import { apolloCache, apolloClient } from '../utils/apollo';
