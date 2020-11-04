@@ -2,7 +2,7 @@
   <div class="main-container">
     <div class="step-body" v-if="step">
       <div class="step-title">
-        <h1>Step {{step.stepNumber}}: {{step.title}}</h1>
+        <h1>Step {{step.stepNumber}} - {{step.title}}</h1>
         <div class="btn-done no" v-on:click="moveToStep(step.stepNumber + 1)" v-if="step.stepNumber >= currentStep.stepNumber && !currentUser.completed">Finished!</div>
         <div v-else>
           <div class="btn-done yes">Done ✔</div>
@@ -71,7 +71,7 @@ export default {
         // },
       }).then((data) => {
         // Result
-        console.log(data)
+        this.currentStep.stepNumber = nextStepNb;
       }).catch((error) => {
         // Error
         console.error(error)
