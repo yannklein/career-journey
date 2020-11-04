@@ -1,12 +1,20 @@
 <template>
   <div class="step-list">
     <div v-for="step in steps" :key="step.id">
-      <div class="step-item" @click="displayStep(step.id)">
-        <div class="step-num">{{step.stepNumber}}</div>
-        <div class="step-title">{{step.title}}</div>
-        <!-- <div>{{step.stepNumber}}{{currentStep.stepNumber}}</div> -->
-        <div v-if="step.stepNumber < currentStep.stepNumber || currentUser.completed">✅</div>
-        <div v-else>◻️</div>
+      <div v-if="step.stepNumber <= currentStep.stepNumber">
+        <div class="step-item" @click="displayStep(step.id)">
+          <div class="step-num">{{step.stepNumber}}</div>
+          <div class="step-title">{{step.title}}</div>
+          <div v-if="step.stepNumber < currentStep.stepNumber || currentUser.completed">✅</div>
+          <div v-else>◻️</div>
+        </div>
+      </div>
+      <div v-else>
+        <div class="step-item inactive">
+          <div class="step-num">{{step.stepNumber}}</div>
+          <div class="step-title">{{step.title}}</div>
+          <div>◻️</div>
+        </div>
       </div>
     </div>
   </div>
@@ -90,6 +98,13 @@ export default {
   background-color: white;
   margin: 8px;
   cursor: pointer;
+}
+.step-item.inactive {
+  color: rgb(180,180,180);
+  cursor: default;
+}
+.step-item.inactive .step-num{
+  background-color: rgb(180,180,180);
 }
 .step-title {
   flex-grow: 1;
