@@ -46,6 +46,9 @@ p {
   text-align: center;
 }
 #app {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 24px;
+  padding: 32px;
 }
 </style>

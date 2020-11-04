@@ -65,7 +65,6 @@ export default {
   position: sticky;
   top: 0;
   z-index: 50;
-  margin: 16px;
 }
 .step-item {
   color: rgb(40,40,40);
