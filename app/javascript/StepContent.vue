@@ -4,10 +4,13 @@
       <div class="step-title">
         <h1>Step {{step.stepNumber}}: {{step.title}}</h1>
         <div class="btn-done no" v-on:click="markDone(step.stepNumber)" v-if="step.stepNumber >= currentStep.stepNumber">Finised!</div>
-        <div class="btn-done yes" v-else>Done ✔</div>
+        <div v-else>
+          <div class="btn-done yes">Done ✔</div>
+          <div class="btn-cancel">Cancel?</div>
+        </div>
       </div>
       <markdown-it-vue class="md-body step-description" :content="step.description" />
-      <div class="step-resource" v-if="step.resources">
+      <div class="step-resource" v-if="step.resources.length != 0">
         <markdown-it-vue class="md-body" :content="'## Resource 🔗'" />
         <div class="resources-list" v-for="resource in step.resources" :key="resource.id">
           <markdown-it-vue class="md-body" :content="'[' + resource.name + '](' + resource.url + ') - ' + resource.description" />
@@ -127,11 +130,19 @@ export default {
 
 .btn-done.no {
   background-image: linear-gradient(#00B600, #00C900);
-  box-shadow: 0 0 4px rgba(0,175,0,0.4)
+  box-shadow: 0 0 4px rgba(0,175,0,0.4);
   cursor: pointer;
 }
 
 .btn-done.yes {
   background-color: darkseagreen;
+}
+
+.btn-cancel {
+  color: lightgray;
+  font-size: 16px;
+  padding: 0 24px;
+  min-width: max-content;
+  cursor: pointer;
 }
 </style>

@@ -62,10 +62,10 @@ export default {
 
 .navbar-vanilla-logo {
   height: 64px;
-  width: 64;
+  width: 64px;
   object-fit: cover;
   object-position: 50% 50%;
-  margin: 0 24px;
+  margin: 0 32px;
 }
 
 .navbar-vanilla-brand {
@@ -79,7 +79,7 @@ export default {
 
 .navbar-vanilla-profile {
   position: relative;
-  margin: 0 24px;
+  margin: 0 32px;
 }
 
 .navbar-vanilla-profile img {
