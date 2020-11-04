@@ -3,7 +3,7 @@
     <div class="step-body" v-if="step">
       <div class="step-title">
         <h1>Step {{step.stepNumber}}: {{step.title}}</h1>
-        <div class="btn-done no" v-on:click="markDone(step.stepNumber)" v-if="step.stepNumber >= currentStep.stepNumber">Finised!</div>
+        <div class="btn-done no" v-on:click="markDone(step.stepNumber)" v-if="step.stepNumber >= currentStep.stepNumber">Finished!</div>
         <div v-else>
           <div class="btn-done yes">Done ✔</div>
           <div class="btn-cancel">Cancel?</div>
@@ -34,7 +34,8 @@ export default {
   },
   methods: {
     markDone: function() {
-      console.log("hop")
+      console.log("hop");
+
     }
   },
   data(){
