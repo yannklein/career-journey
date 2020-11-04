@@ -1,12 +1,12 @@
 module Types
-  class StepType < Types::BaseObject
+  class ResourceType < Types::BaseObject
     field :id, ID, null: false
-    field :title, String, null: true
+    field :name, String, null: true
     field :description, String, null: true
+    field :url, String, null: true
+    field :step_id, Integer, null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :step_number, Integer, null: true
-    field :resources, [Types::ResourceType], null: true
-    field :users, [Types::UserType], null: true
+    field :res_type, String, null: true
   end
 end

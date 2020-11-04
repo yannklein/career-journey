@@ -1,8 +1,12 @@
 <template>
   <div class="main-container">
-    <div v-if="step">
+    <div class="step-description" v-if="step">
       <h1>Step {{step.stepNumber}}: {{step.title}}</h1>
       <markdown-it-vue class="md-body" :content="step.description" />
+    </div>
+    <markdown-it-vue class="md-body" :content="'## Resource 🔗'" />
+    <div class="resources-list" v-for="resource in step.resources" :key="resource.id">
+      <markdown-it-vue class="md-body" :content="'[' + resource.name + '](' + resource.url + ') - ' + resource.description" />
     </div>
   </div>
 </template>
@@ -36,6 +40,12 @@ export default {
             stepNumber
             title
             description
+            resources {
+              id
+              name
+              description
+              url
+            }
           }
         }`
       }).then(result => {
@@ -52,6 +62,12 @@ export default {
             stepNumber
             title
             description
+            resources {
+              id
+              name
+              description
+              url
+            }
           }
         }
       `,
@@ -66,6 +82,10 @@ export default {
   width: 100%;
 }
 .main-container h1 {
+  margin-bottom: 24px;
+}
+
+.step-description {
   margin-bottom: 24px;
 }
 </style>

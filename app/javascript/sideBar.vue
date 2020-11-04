@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="step-list" v-for="step in steps" :key="step.id">
+  <div class="step-list">
+    <div v-for="step in steps" :key="step.id">
       <div class="step-item" @click="displayStep(step.id)">
         <div class="step-num">{{step.stepNumber}}</div>
         <div class="step-title">{{step.title}}</div>
@@ -64,6 +64,7 @@ export default {
   padding-right: 0;
   position: sticky;
   top: 0;
+  height: max-content;
   z-index: 50;
 }
 .step-item {
