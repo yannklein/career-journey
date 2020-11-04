@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <SideBar></SideBar>
-    <StepContent :key="currentStep.id"></StepContent>
+    <Navbar></Navbar>
+    <div class="app-body">
+      <SideBar></SideBar>
+      <StepContent :key="currentStep.id"></StepContent>
+    </div>
   </div>
 </template>
 
@@ -10,11 +13,13 @@ import gql from 'graphql-tag';
 import { store } from "./store.js";
 import SideBar from './SideBar.vue';
 import StepContent from './StepContent.vue';
+import Navbar from './Navbar.vue';
 
 export default {
   components: {
     SideBar,
-    StepContent
+    StepContent,
+    Navbar
   },
   data(){
     return{
@@ -45,7 +50,7 @@ p {
   font-size: 2em;
   text-align: center;
 }
-#app {
+.app-body {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 32px;
