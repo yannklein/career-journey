@@ -13,5 +13,6 @@ module Types
     field :batch, Integer, null: true
     field :github_account, String, null: true
     field :step, Types::StepType, null: false
+    field :completed, Boolean, null: false
   end
 end

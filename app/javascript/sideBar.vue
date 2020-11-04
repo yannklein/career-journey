@@ -5,7 +5,7 @@
         <div class="step-num">{{step.stepNumber}}</div>
         <div class="step-title">{{step.title}}</div>
         <!-- <div>{{step.stepNumber}}{{currentStep.stepNumber}}</div> -->
-        <div v-if="step.stepNumber < currentStep.stepNumber">✅</div>
+        <div v-if="step.stepNumber < currentStep.stepNumber || currentUser.completed">✅</div>
         <div v-else>◻️</div>
       </div>
     </div>
@@ -22,7 +22,8 @@ export default {
   data(){
     return{
         steps:[],
-        currentStep: '0'
+        currentStep: null,
+        currentUser: null
     }
   },
   methods: {
@@ -48,6 +49,16 @@ export default {
           currentStep {
             id
             stepNumber
+          }
+        }
+      `,
+    },
+    currentUser:{
+      query: gql`
+        {
+          currentUser {
+            id
+            completed
           }
         }
       `,

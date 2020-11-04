@@ -1,21 +1,25 @@
 module Mutations
   class UpdateUserStepId < BaseMutation
     # arguments passed to the `resolve` method
-    argument :stepId, Integer, required: true
+    argument :stepNb, Integer, required: true
 
     # return type from the mutation
     type Types::UserType
 
-    def resolve(stepId: 0)
+    def resolve(stepNb: 0)
       my_user = context[:current_user]
-      my_user.update!(step_id: stepId)
+      if stepNb > Step.maximum("step_number")
+        my_user.update!(completed: true)
+      else
+        my_user.update!(step_id: Step.find_by(step_number: stepNb).id, completed: false)
+      end
       context[:current_user]
     end
   end
 end
 
 # mutation {
-#   updateUserStepId(stepId: 10) {
+#   updateUserStepId(stepNb: 10) {
 #     id
 #     stepId
 #   }

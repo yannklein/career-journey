@@ -3,10 +3,10 @@
     <div class="step-body" v-if="step">
       <div class="step-title">
         <h1>Step {{step.stepNumber}}: {{step.title}}</h1>
-        <div class="btn-done no" v-on:click="markDone(step.stepNumber)" v-if="step.stepNumber >= currentStep.stepNumber">Finished!</div>
+        <div class="btn-done no" v-on:click="moveToStep(step.stepNumber + 1)" v-if="step.stepNumber >= currentStep.stepNumber && !currentUser.completed">Finished!</div>
         <div v-else>
           <div class="btn-done yes">Done ✔</div>
-          <div class="btn-cancel">Cancel?</div>
+          <div v-on:click="moveToStep(step.stepNumber)" class="btn-cancel">Cancel?</div>
         </div>
       </div>
       <markdown-it-vue class="md-body step-description" :content="step.description" />
@@ -33,15 +33,59 @@ export default {
     MarkdownItVue
   },
   methods: {
-    markDone: function() {
-      console.log("hop");
-
+    moveToStep: function(nextStepNb) {
+      console.log("nextStepNb");
+      this.$apollo.mutate({
+        // Query
+        mutation: gql`mutation {
+          updateUserStepId(stepNb: ${nextStepNb}) {
+            id
+            stepId
+          }
+        }`
+        // Parameters
+        // variables: {
+        //   nextStep: nextStep,
+        // },
+        // Update the cache with the result
+        // The query will be updated with the optimistic response
+        // and then with the real result of the mutation
+        // update: (store, { data: { addTag } }) => {
+        //   // Read the data from our cache for this query.
+        //   const data = store.readQuery({ query: TAGS_QUERY })
+        //   // Add our tag from the mutation to the end
+        //   data.tags.push(addTag)
+        //   // Write our data back to the cache.
+        //   store.writeQuery({ query: TAGS_QUERY, data })
+        // },
+        // Optimistic UI
+        // Will be treated as a 'fake' result as soon as the request is made
+        // so that the UI can react quickly and the user be happy
+        // optimisticResponse: {
+        //   __typename: 'Mutation',
+        //   addTag: {
+        //     __typename: 'Tag',
+        //     id: -1,
+        //     label: newTag,
+        //   },
+        // },
+      }).then((data) => {
+        // Result
+        console.log(data)
+      }).catch((error) => {
+        // Error
+        console.error(error)
+        // We restore the initial user input
+        // this.newTag = newTag
+      })
     }
   },
+
   data(){
     return{
         storeState: store.state,
         step: null,
+        currentUser: null,
         currentStep: null
     }
   },
@@ -94,6 +138,16 @@ export default {
           currentStep {
             id
             stepNumber
+          }
+        }
+      `,
+    },
+    currentUser:{
+      query: gql`
+        {
+          currentUser {
+            id
+            completed
           }
         }
       `,

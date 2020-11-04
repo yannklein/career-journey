@@ -17,6 +17,8 @@ module Types
 
     field :current_step, Types::StepType, null: true
 
+    field :current_user, Types::UserType, null: true
+
     def steps(order_by: nil)
       # order_by = {step_number: :desc}
       # context[:current_user].steps
@@ -33,6 +35,10 @@ module Types
 
     def current_step
       context[:current_user].step
+    end
+
+    def current_user
+      context[:current_user]
     end
   end
 end
