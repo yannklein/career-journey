@@ -48,7 +48,7 @@ p {
 #app {
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 24px;
+  grid-gap: 32px;
   padding: 32px;
 }
 </style>

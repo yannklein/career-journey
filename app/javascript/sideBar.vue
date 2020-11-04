@@ -83,4 +83,14 @@ export default {
   flex-grow: 1;
   margin: 0 24px;
 }
+
+.step-num {
+  font-size: 24px;
+  background-color: rgba(252, 0, 0, 0.7);
+  min-width: 36px;
+  height: 36px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+}
 </style>
