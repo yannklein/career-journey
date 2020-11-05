@@ -1,19 +1,21 @@
 <template>
   <div class="step-list">
     <div v-for="step in steps" :key="step.id">
-      <div v-if="step.stepNumber <= currentStep.stepNumber">
-        <div class="step-item" @click="displayStep(step.id)">
-          <div class="step-num">{{step.stepNumber}}</div>
-          <div class="step-title">{{step.title}}</div>
-          <div v-if="step.stepNumber < currentStep.stepNumber || currentUser.completed">✅</div>
-          <div v-else>◻️</div>
+      <div v-if="step && currentUser && currentStep">
+        <div v-if="step.stepNumber <= currentStep.stepNumber">
+          <div class="step-item" @click="displayStep(step.id)">
+            <div class="step-num">{{step.stepNumber}}</div>
+            <div class="step-title">{{step.title}}</div>
+            <div v-if="step.stepNumber < currentStep.stepNumber || currentUser.completed">✅</div>
+            <div v-else>◻️</div>
+          </div>
         </div>
-      </div>
-      <div v-else>
-        <div class="step-item inactive">
-          <div class="step-num">{{step.stepNumber}}</div>
-          <div class="step-title">{{step.title}}</div>
-          <div>◻️</div>
+        <div v-else>
+          <div class="step-item inactive">
+            <div class="step-num">{{step.stepNumber}}</div>
+            <div class="step-title">{{step.title}}</div>
+            <div>◻️</div>
+          </div>
         </div>
       </div>
     </div>

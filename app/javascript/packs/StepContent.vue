@@ -1,19 +1,25 @@
 <template>
-  <div class="main-container">
-    <div class="step-body" v-if="step">
-      <div class="step-title">
-        <h1>Step {{step.stepNumber}} - {{step.title}}</h1>
-        <div class="btn-done no" v-on:click="moveToStep(step.stepNumber + 1)" v-if="step.stepNumber >= currentStep.stepNumber && !currentUser.completed">Finished!</div>
-        <div v-else>
-          <div class="btn-done yes">Done ✔</div>
-          <div v-on:click="moveToStep(step.stepNumber)" class="btn-cancel">Cancel?</div>
+  <div v-if="step">
+    <div class="main-container">
+      <div class="step-body" v-if="step && step.stepNumber">
+        <div class="step-title">
+          <h1>Step {{step.stepNumber}} - {{step.title}}</h1>
+          <div class="btn-done no" v-on:click="moveToStep(step.stepNumber + 1)" v-if="step.stepNumber >= currentStep.stepNumber && !currentUser.completed">Finished!</div>
+          <div v-else>
+            <div class="btn-done yes">Done ✔</div>
+            <div v-on:click="moveToStep(step.stepNumber)" class="btn-cancel">Cancel?</div>
+          </div>
         </div>
-      </div>
-      <markdown-it-vue class="md-body step-description" :content="step.description" />
-      <div class="step-resource" v-if="step.resources.length != 0">
-        <markdown-it-vue class="md-body" :content="'## Resource 🔗'" />
-        <div class="resources-list" v-for="resource in step.resources" :key="resource.id">
-          <markdown-it-vue class="md-body" :content="'[' + resource.name + '](' + resource.url + ') - ' + resource.description" />
+        <div v-if="step.video">
+          <markdown-it-vue class="md-body" :content="'## Today\'s lecture 📺'" />
+          <youtube :video-id="step.video"></youtube>
+        </div>
+        <markdown-it-vue class="md-body step-description" :content="step.description" />
+        <div class="step-resource" v-if="step.resources.length != 0">
+          <markdown-it-vue class="md-body" :content="'## Resource 🔗'" />
+          <div class="resources-list" v-for="resource in step.resources" :key="resource.id">
+            <markdown-it-vue class="md-body" :content="'[' + resource.name + '](' + resource.url + ') - ' + resource.description" />
+          </div>
         </div>
       </div>
     </div>
@@ -43,40 +49,10 @@ export default {
             stepId
           }
         }`
-        // Parameters
-        // variables: {
-        //   nextStep: nextStep,
-        // },
-        // Update the cache with the result
-        // The query will be updated with the optimistic response
-        // and then with the real result of the mutation
-        // update: (store, { data: { addTag } }) => {
-        //   // Read the data from our cache for this query.
-        //   const data = store.readQuery({ query: TAGS_QUERY })
-        //   // Add our tag from the mutation to the end
-        //   data.tags.push(addTag)
-        //   // Write our data back to the cache.
-        //   store.writeQuery({ query: TAGS_QUERY, data })
-        // },
-        // Optimistic UI
-        // Will be treated as a 'fake' result as soon as the request is made
-        // so that the UI can react quickly and the user be happy
-        // optimisticResponse: {
-        //   __typename: 'Mutation',
-        //   addTag: {
-        //     __typename: 'Tag',
-        //     id: -1,
-        //     label: newTag,
-        //   },
-        // },
       }).then((data) => {
-        // Result
         this.currentStep.stepNumber = nextStepNb;
       }).catch((error) => {
-        // Error
         console.error(error)
-        // We restore the initial user input
-        // this.newTag = newTag
       })
     }
   },
@@ -100,11 +76,13 @@ export default {
             stepNumber
             title
             description
+            video
             resources {
               id
               name
               description
               url
+              resType
             }
           }
         }`
@@ -122,11 +100,13 @@ export default {
             stepNumber
             title
             description
+            video
             resources {
               id
               name
               description
               url
+              resType
             }
           }
         }

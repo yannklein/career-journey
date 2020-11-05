@@ -28,7 +28,7 @@ export default {
         currentStep: ''
     }
   },
-  created() {
+  beforeCreate() {
     this.$apollo.query({
       query: gql`
           {

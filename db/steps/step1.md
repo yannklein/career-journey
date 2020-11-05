@@ -1,5 +1,3 @@
-As discussed, today is the first pre-Demo day Career Week challenge!
-
 ## The objectives ☕️
 
 - Build your CV - follow the slides for best practices 💅
