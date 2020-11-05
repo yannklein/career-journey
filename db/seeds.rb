@@ -16,7 +16,7 @@ steps_path = Rails.root.join('db/steps')
 puts "Steps/Resource creation"
 step1 = Step.create(
   title: "CV and Linkedin",
-  video: "https://youtu.be/G5GkCwIk6bk",
+  video: "G5GkCwIk6bk",
   description: File.open("#{steps_path}/step1.md").read,
   step_number: 1
 )
@@ -78,7 +78,7 @@ Resource.create(
 
 step3 = Step.create(
   title: "Landing your first job",
-  video: "https://youtu.be/AIfAc0i_v6I",
+  video: "AIfAc0i_v6I",
   description: File.open("#{steps_path}/step3.md").read,
   step_number: 3
 )
