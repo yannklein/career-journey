@@ -10,7 +10,7 @@
             <div v-on:click="moveToStep(step.stepNumber)" class="btn-cancel">Cancel?</div>
           </div>
         </div>
-        <div v-if="step.video">
+        <div class="step-video" v-if="step.video">
           <markdown-it-vue class="md-body" :content="'## Today\'s lecture 📺'" />
           <youtube :video-id="step.video"></youtube>
         </div>
@@ -153,6 +153,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.step-video {
+  margin-bottom: 24px;
 }
 
 .btn-done {
