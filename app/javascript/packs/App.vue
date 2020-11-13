@@ -23,7 +23,7 @@ export default {
   },
   data(){
     return{
-        storeState: store.state,
+        // storeState: store.state,
         step: null,
         currentStep: ''
     }

@@ -67,11 +67,11 @@ export default {
   },
   watch: {
     'storeState.selectedStep': function () {
-      const thisStep = this.storeState.selectedStep;
+      // const thisStep = this.storeState.selectedStep;
       this.$apollo.query({
         query: gql`
         {
-          step(stepId: "${thisStep}"){
+          step(stepId: "${store.state.selectedStep}"){
             id
             stepNumber
             title
@@ -92,26 +92,26 @@ export default {
     }
   },
   apollo:{
-    step:{
-      query: gql`
-        {
-          step(stepId: "${store.state.selectedStep}"){
-            id
-            stepNumber
-            title
-            description
-            video
-            resources {
-              id
-              name
-              description
-              url
-              resType
-            }
-          }
-        }
-      `,
-    },
+    // step:{
+    //   query: gql`
+    //     {
+    //       step(stepId: "${store.state.selectedStep}"){
+    //         id
+    //         stepNumber
+    //         title
+    //         description
+    //         video
+    //         resources {
+    //           id
+    //           name
+    //           description
+    //           url
+    //           resType
+    //         }
+    //       }
+    //     }
+    //   `,
+    // },
     currentStep:{
       query: gql`
         {
