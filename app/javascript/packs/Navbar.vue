@@ -1,40 +1,58 @@
 <template>
-  <div class="navbar">
-    <a class="navbar-section" href="#">
-      <img class="navbar-logo" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" alt="lewagon">
-      <h2 class="navbar-brand">Your career Journey</h2>
-    </a>
-    <div class="navbar-section">
-      <div class="navbar-menu">
-        <a href="#">Current step</a>
-        <a href="#">Contact us</a>
-      </div>
-      <div class="navbar-profile" v-on:click="openMenu($event)">
-        <img src="https://avatars2.githubusercontent.com/u/26819547?s=400&amp;u=ae79d8825ad1127723641cbf32a9a7e2ec221e7f&amp;v=4" alt="">
-        <ul>
-          <li><a href="#">To Kitt</a></li>
-          <li><a href="#">Batch Slack</a></li>
-          <li><a href="#">Login</a></li>
-        </ul>
+  <div v-if="currentUser">
+    <div class="navbar">
+      <a class="navbar-section" href="#">
+        <img class="navbar-logo" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" alt="lewagon">
+        <h2 class="navbar-brand">Your career Journey</h2>
+      </a>
+      <div class="navbar-section">
+        <div class="navbar-menu">
+          <a href="#">Current step</a>
+          <a href="https://lewagon-alumni.slack.com/archives/DFNR75GT1" target=_blank>Contact us</a>
+        </div>
+        <div class="navbar-profile" v-on:click="openMenu($event)">
+          <img src="https://avatars2.githubusercontent.com/u/26819547?s=400&amp;u=ae79d8825ad1127723641cbf32a9a7e2ec221e7f&amp;v=4" alt="">
+          <ul>
+            <li><a :href="'https://kitt.lewagon.com/camps/' + currentUser.batch">To Kitt</a></li>
+            <li><a :href="'https://lewagon-alumni.slack.com/app_redirect?channel=batch-' + currentUser.batch + '-tokyo'">Batch Slack</a></li>
+            <li><a rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
 export default {
 
   name: 'Navbar',
 
   data () {
     return {
-
+      currentUser: null
     }
   },
   methods: {
     openMenu: function (event) {
       event.currentTarget.classList.toggle("active");
+    },
+    displayStep(id) {
+      store.setSelectedStepAction(id);
+    }
+  },
+  apollo:{
+    currentUser:{
+      query: gql`
+        {
+          currentUser {
+            id
+            batch
+          }
+        }
+      `,
     }
   }
 }
