@@ -1,21 +1,22 @@
 <template>
   <div v-if="currentUser">
-    <div class="navbar">
-      <div class="navbar-section navbar-link " v-on:click=displayStep(currentStep.id)>
-        <img class="navbar-logo" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" alt="lewagon">
-        <h2 class="navbar-brand">Your career Journey</h2>
+    <div class="app-navbar">
+      <div class="app-navbar-section app-navbar-link " v-on:click=displayStep(currentStep.id)>
+        <img class="app-navbar-logo" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" alt="lewagon">
+        <h2 class="app-navbar-brand">Your career Journey</h2>
       </div>
-      <div class="navbar-section">
-        <div class="navbar-menu">
-          <div class="navbar-link" v-on:click=displayStep(currentStep.id)>Current step</div>
-          <a class="navbar-link" href="https://lewagon-alumni.slack.com/archives/DFNR75GT1" target=_blank>Contact us</a>
+      <div class="app-navbar-section">
+        <div class="app-navbar-menu">
+          <div class="app-navbar-link" v-on:click=displayStep(currentStep.id)>Current step</div>
+          <a class="app-navbar-link" href="https://lewagon-alumni.slack.com/archives/DFNR75GT1" target=_blank>Contact us</a>
         </div>
-        <div class="navbar-profile" v-on:click="openMenu($event)">
+        <div class="app-navbar-profile" v-on:click="openMenu($event)">
           <img src="https://avatars2.githubusercontent.com/u/26819547?s=400&amp;u=ae79d8825ad1127723641cbf32a9a7e2ec221e7f&amp;v=4" alt="">
           <ul>
-            <li><a class="navbar-link" :href="'https://kitt.lewagon.com/camps/' + currentUser.batch">To Kitt</a></li>
-            <li><a class="navbar-link" :href="'https://lewagon-alumni.slack.com/app_redirect?channel=batch-' + currentUser.batch + '-tokyo'">Batch Slack</a></li>
-            <li><a class="navbar-link" rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a></li>
+            <li><a class="app-navbar-link" :href="'https://kitt.lewagon.com/camps/' + currentUser.batch">To Kitt</a></li>
+            <li><a class="app-navbar-link" :href="'https://lewagon-alumni.slack.com/app_redirect?channel=batch-' + currentUser.batch + '-tokyo'">Batch Slack</a></li>
+            <li><a class="app-navbar-link" href="https://lewagon-alumni.slack.com/archives/DFNR75GT1" target=_blank>Contact us</a></li>
+            <li><a class="app-navbar-link" rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a></li>
           </ul>
         </div>
       </div>
@@ -29,7 +30,7 @@ import { store } from "./store.js";
 
 export default {
 
-  name: 'Navbar',
+  name: 'app-Navbar',
 
   data () {
     return {
@@ -72,7 +73,7 @@ export default {
 
 <style lang="css" scoped>
 
-.navbar {
+.app-navbar {
   display: flex;
   height: 96px;
   align-items: center;
@@ -80,7 +81,7 @@ export default {
   background-color: white;
 }
 
-.navbar-link {
+.app-navbar-link {
   text-decoration: none;
   color: rgb(40,40,40);
   font-size: 20px;
@@ -88,12 +89,12 @@ export default {
   display: inline-block;
 }
 
-.navbar-section {
+.app-navbar-section {
   display: flex;
   align-items: center;
 }
 
-.navbar-logo {
+.app-navbar-logo {
   height: 64px;
   width: 64px;
   object-fit: cover;
@@ -102,29 +103,30 @@ export default {
   margin-right: 16px;
 }
 
-.navbar-brand {
+.app-navbar-brand {
   margin: 0;
   font-size: 24px;
 }
 
-.navbar-menu a {
+.app-navbar-menu a {
   margin: 0 16px;
 }
 
-.navbar-profile {
+.app-navbar-profile {
   position: relative;
   margin: 0 32px;
 }
 
-.navbar-profile img {
+.app-navbar-profile img {
   width: 64px;
   height: 64px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.navbar-profile ul {
+.app-navbar-profile ul {
   position: absolute;
+  z-index: 99;
   top: 64px;
   right: 0;
   list-style: none;
@@ -140,28 +142,37 @@ export default {
   transition: 0.3s;
 }
 
-.navbar-profile li a{
+.app-navbar-profile li a{
   margin: 4px;
   font-size: 16px;
 }
 
-.navbar-profile.active ul {
+.app-navbar-profile.active ul {
   opacity: 1;
   visibility: visible;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media (max-width: 576px) {
-  .navbar-brand {
-    font-size: 24px;
+  .app-navbar-brand {
+    font-size: 20px;
   }
 
-  .navbar-menu {
+  .app-navbar-menu {
     display: none;
   }
 
-  .navbar-profile ul {
-
+  .app-navbar-logo {
+    margin-left: 16px;
+    width: 48px;
+    height: 48px;
+  }
+  .app-navbar-profile img {
+    width: 48px;
+    height: 48px;
+  }
+  .app-navbar-profile {
+    margin-right: 16px;
   }
 }
 </style>
