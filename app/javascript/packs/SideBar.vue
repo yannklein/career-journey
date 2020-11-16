@@ -6,15 +6,15 @@
           <div class="step-item" @click="displayStep(step.id)">
             <div class="step-num">{{step.stepNumber}}</div>
             <div class="step-title">{{step.title}}</div>
-            <div v-if="step.stepNumber < currentStep.stepNumber || currentUser.completed">✅</div>
-            <div v-else>◻️</div>
+            <div class="step-checked" v-if="step.stepNumber < currentStep.stepNumber || currentUser.completed">✅</div>
+            <div class="step-checked" v-else>◻️</div>
           </div>
         </div>
         <div v-else>
           <div class="step-item inactive">
             <div class="step-num">{{step.stepNumber}}</div>
             <div class="step-title">{{step.title}}</div>
-            <div>◻️</div>
+            <div class="step-checked">◻️</div>
           </div>
         </div>
       </div>
@@ -125,6 +125,19 @@ export default {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media (max-width: 576px) {
-
+  .step-list {
+    min-width: auto;
+    width: auto;
+  }
+  .step-title, .step-checked {
+    display: none;
+  }
+  .step-item {
+    padding: 4px 4px;
+    box-shadow: none;
+    font-size: 20px;
+    background-color: transparent;
+    margin: 4px;
+  }
 }
 </style>

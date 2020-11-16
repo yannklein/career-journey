@@ -154,6 +154,10 @@ export default {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media (max-width: 576px) {
+  .app-navbar {
+    height: 80px;
+  }
+
   .app-navbar-brand {
     font-size: 20px;
   }
