@@ -12,7 +12,12 @@
         </div>
         <div class="step-video" v-if="step.video">
           <markdown-it-vue class="md-body" :content="'## Today\'s lecture 📺'" />
-          <youtube :video-id="step.video"></youtube>
+          <div class="step-video-laptop">
+            <youtube :video-id="step.video"></youtube>
+          </div>
+          <div class="step-video-mobile">
+            <youtube player-width="none" player-height="none" :video-id="step.video"></youtube>
+          </div>
         </div>
         <markdown-it-vue class="md-body step-description" :content="step.description" />
         <div class="step-resource" v-if="step.resources.length != 0">
@@ -56,7 +61,6 @@ export default {
       })
     }
   },
-
   data(){
     return{
         storeState: store.state,
@@ -155,8 +159,12 @@ export default {
   justify-content: space-between;
 }
 
-.step-video {
-  margin-bottom: 24px;
+.step-video-laptop {
+  margin: 24px 0;
+}
+
+.step-video-mobile {
+  display: none;
 }
 
 .btn-done {
@@ -183,5 +191,35 @@ export default {
   padding: 0 24px;
   min-width: max-content;
   cursor: pointer;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 576px) {
+  .step-title {
+    display: block;
+  }
+
+  .step-title h1 {
+    font-size: 32px;
+  }
+
+  .btn-done {
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    width: max-content;
+  }
+
+  .step-video-laptop {
+    display: none;
+  }
+
+  .step-video-mobile {
+    display: block;
+    width: 100%;
+  }
+
+  .markdown-body ul {
+    padding-left: 19px !important;
+  }
 }
 </style>

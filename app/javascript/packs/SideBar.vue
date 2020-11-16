@@ -128,16 +128,18 @@ export default {
   .step-list {
     min-width: auto;
     width: auto;
+    top: 8px;
   }
   .step-title, .step-checked {
     display: none;
   }
   .step-item {
-    padding: 4px 4px;
+    padding: 0;
     box-shadow: none;
     font-size: 20px;
     background-color: transparent;
-    margin: 4px;
+    margin: 0px;
+    margin-bottom: 8px;
   }
 }
 </style>
