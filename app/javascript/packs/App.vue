@@ -56,4 +56,11 @@ p {
   grid-gap: 32px;
   padding: 32px;
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 576px) {
+  .app-body {
+    padding: 0;
+  }
+}
 </style>

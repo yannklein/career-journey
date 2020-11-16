@@ -122,4 +122,9 @@ export default {
   border-radius: 50%;
   color: white;
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 576px) {
+
+}
 </style>
