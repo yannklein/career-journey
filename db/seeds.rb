@@ -91,6 +91,7 @@ step4 = Step.create(
 )
 
 puts "User creation"
-User.create(email: "yann.klein@me.com", step: step1, name: "Yann Klein", batch: 666, github_account: "yannklein", password: "123456")
+User.create(email: "yann.klein@me.com", step: step1, name: "Yann Klein", batch: 465, github_account: "yannklein", password: "123456")
+User.create(email: "douglas.berkley@lewagon.org", step: step1, name: "Doug Berkley", batch: 471, github_account: "dmbf29", password: "123456")
 
 puts "Seed done!"
