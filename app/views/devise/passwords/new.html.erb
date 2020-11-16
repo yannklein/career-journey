@@ -1,18 +1,29 @@
-<h2>Forgot your password?</h2>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-6">
+      <div class="d-flex align-items-center my-5 justify-content-center">
+        <img class="rounded-circle mr-3" width="80" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" alt="lewagon">
+        <h2>Your career Journey</h2>
+      </div>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+      <h2>Choose a new password</h2>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Send mail confrimation", class: "btn btn-danger" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
