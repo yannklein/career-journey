@@ -12,6 +12,7 @@ resource_type = {
 }
 
 steps_path = Rails.root.join('db/steps')
+users_path = Rails.root.join('db/users')
 
 puts "Steps/Resource creation"
 step1 = Step.create(
@@ -90,8 +91,24 @@ step4 = Step.create(
   step_number: 4
 )
 
-puts "User creation"
+puts "Admin creation"
 User.create(email: "yann.klein@me.com", step: step1, name: "Yann Klein", batch: 465, github_account: "yannklein", password: "123456")
 User.create(email: "douglas.berkley@lewagon.org", step: step1, name: "Doug Berkley", batch: 471, github_account: "dmbf29", password: "123456")
+
+puts "User creation"
+serialized_users = File.read("#{users_path}/students.json")
+users = JSON.parse(serialized_users)
+
+users.each do |user|
+  # p user['batch']
+  User.create!(
+    email: user['email'],
+    step: step1,
+    name: "#{user['first_name']} #{user['last_name']}",
+    batch: user['batch']["number"],
+    github_account: user["github"],
+    password: "lewag00n")
+end
+puts "#{User.count} users created"
 
 puts "Seed done!"
