@@ -11,7 +11,7 @@
           <a class="app-navbar-link" href="https://lewagon-alumni.slack.com/archives/DFNR75GT1" target=_blank>Contact us</a>
         </div>
         <div class="app-navbar-profile" v-on:click="openMenu($event)">
-          <img src="https://avatars2.githubusercontent.com/u/26819547?s=400&amp;u=ae79d8825ad1127723641cbf32a9a7e2ec221e7f&amp;v=4" alt="">
+          <img :src="avatarSrc" alt="">
           <ul>
             <li><a class="app-navbar-link" :href="'https://kitt.lewagon.com/camps/' + currentUser.batch">To Kitt</a></li>
             <li><a class="app-navbar-link" :href="'https://lewagon-alumni.slack.com/app_redirect?channel=batch-' + currentUser.batch + '-tokyo'">Batch Slack</a></li>
@@ -35,7 +35,8 @@ export default {
   data () {
     return {
       currentUser: null,
-      currentStep: null
+      currentStep: null,
+      avatarSrc: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png"
     }
   },
   methods: {
@@ -46,6 +47,27 @@ export default {
       store.setSelectedStepAction(id);
     }
   },
+  created: function () {
+    this.$apollo.query({
+      query: gql`
+          {
+          currentUser {
+            id
+            batch
+            githubAccount
+          }
+        }
+      `
+    }).then(result => {
+      // console.log(result.data.currentUser.githubAccount)
+      const username = result.data.currentUser.githubAccount;
+      // url = `https://api.github.com/users/${this.currentUser.githubAccount}`;
+      const url = `https://api.github.com/users/${username}`;
+      fetch(url)
+      .then(response => response.json())
+      .then(data => this.avatarSrc = data.avatar_url)
+    });
+  },
   apollo:{
     currentUser:{
       query: gql`
@@ -53,6 +75,7 @@ export default {
           currentUser {
             id
             batch
+            githubAccount
           }
         }
       `,
