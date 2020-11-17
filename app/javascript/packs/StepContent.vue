@@ -23,7 +23,7 @@
         <div class="step-resource" v-if="step.resources.length != 0">
           <markdown-it-vue class="md-body" :content="'## Resource 🔗'" />
           <div class="resources-list" v-for="resource in step.resources" :key="resource.id">
-            <markdown-it-vue class="md-body" :content="'[' + resource.name + '](' + resource.url + ') - ' + resource.description" />
+            <markdown-it-vue class="md-body" :content="resource.resType + ' [' + resource.name + '](' + resource.url + ') - ' + resource.description" />
           </div>
         </div>
       </div>

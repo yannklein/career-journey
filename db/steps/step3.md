@@ -1,11 +1,32 @@
-Today, we focus on building your portfolio!
+Time to build your portfolio!
 
-## Our plan 📝
+## The objectives ☕️
 
-- Assemble a list of all of the social links you want to link on your portfolio site: your Github (pimp it with our tuto 👇), Medium, LinkedIn, Instagram, etc.
-- Pick a domain name for your site and purchase it. Useful tips: use a .com, .me, .tech, or a .io domain. Do not use .co as it often gets flagged as spam
-- Fork 🍴 your Final projects, your Airbnb projects, Mr. Cocktail, any others and clean up the front end.
-- Take a screenshot of your products’ landing page.
-- Do a one paragraph write-up describing the challenges and solutions of the project. This can be as simple as the product card on the Kitt products page
+### Create your app using one of the following templates:
 
-_For bonus points:_ Take a video of your journey to upload to your site (this will be useful to share with potential clients too!)
+#### 1️⃣ The simple route: `HTML` + `Netlify` (by [Maria](https://medium.com/@mariacodes))
+1. Create an account on [Netlify](https://www.netlify.com/) 
+2. (Optional) Get a head start on your development by using [this HTML boilerplate](https://github.com/maltyeva/html-template) for your site. Download the template and connect it to your domain using Netlify. Remember to enforce HTTPS! 🔒
+3. Add these meta tags to the `<head>` of your site. Here are Maria's, for reference:
+
+```
+<title>Maria Altyeva</title>
+<meta charset=“utf-8” />
+<meta name=“description” content=“Full-Stack Developer and Agile Project Manager, based in Shanghai, China”>
+<meta name=“keywords” content=“Maria Altyeva, developer,Ruby on Rails, RoR,HTML,JavaScript”>
+<meta name=“author” content=“Maria Altyeva”>
+```
+#### 2️⃣ `Middleman` - A mix of static HTML that feels like Rails + Netlify
+
+Disclaimer: got some compatibility issues with bootstrap 4, but works on v3
+1. Use our [LW boilerplate](https://github.com/lewagon/middleman-boilerplate)
+2. Follow the [Middleman doc](https://middlemanapp.com/) 📚
+
+#### 3️⃣ Go for the comfort of `Rails` + `Heroku`
+1. Rails new with the [minimal template](https://github.com/lewagon/rails-templates#minimal)
+2. Create your Heroku app to deploy
+
+### After the app is created:
+
+- Connect to [Google Analytics](https://analytics.google.com/)
+- Add your projects and style to your portfolio

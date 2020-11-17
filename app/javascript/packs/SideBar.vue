@@ -2,7 +2,7 @@
   <div class="step-list">
     <div v-for="step in steps" :key="step.id">
       <div v-if="step && currentUser && currentStep">
-        <div v-if="step.stepNumber <= currentStep.stepNumber">
+        <div v-if="step.stepNumber <= currentStep.stepNumber || currentUser.completed">
           <div class="step-item" @click="displayStep(step.id)">
             <div class="step-num">{{step.stepNumber}}</div>
             <div class="step-title">{{step.title}}</div>
