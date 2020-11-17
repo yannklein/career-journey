@@ -99,8 +99,11 @@ step5 = Step.create(
 )
 
 # puts "Admin creation"
-User.create(email: "yann.klein@me.com", step: step1, name: "Yann Klein", batch: 465, github_account: "yannklein", password: ENV['YANN_PWD'], admin: true, completed: true)
-User.create(email: "douglas.berkley@lewagon.org", step: step1, name: "Doug Berkley", batch: 471, github_account: "dmbf29", password: ENV['DOUG_PWD'], admin: true, completed: true)
+User.create(email: "yann.klein@me.com", step: step1, name: "Yann Klein", batch: 465, github_account: "yannklein", password: ENV['ADMIN_PWD'], admin: true, completed: true)
+User.create(email: "douglas.berkley@lewagon.org", step: step1, name: "Doug Berkley", batch: 471, github_account: "dmbf29", password: ENV['ADMIN_PWD'], admin: true, completed: true)
+User.create(email: "sylvain.pierre@lewagon.org", step: step1, name: "Sylvain Pierre", batch: 471, github_account: "SylvainPierre", password: ENV['ADMIN_PWD'], admin: true, completed: true)
+User.create(email: "sasha.kaverina@lewagon.org", step: step1, name: "Sasha Kaverina", batch: 471, github_account: "sashakaverina", password: ENV['ADMIN_PWD'], admin: true, completed: true)
+User.create(email: "trouni@gmail.com", step: step1, name: "Trouni Tiet", batch: 252, github_account: "trouni", password: ENV['ADMIN_PWD'], admin: true, completed: true)
 
 # puts "User creation"
 # serialized_users = File.read("#{users_path}/students.json")
