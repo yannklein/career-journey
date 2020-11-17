@@ -1,11 +1,13 @@
-Today, we focus on building your portfolio!
+So far, we’ve talked about building CVs, LinkedIn, and creating a personal portfolio. Now it’s time to talk about **applying for jobs**, how to tackle those tricky technical interviews and how to really upgrade your programming skillset from the bootcamp.
 
-## Our plan 📝
+## The objectives ☕️
 
-- Assemble a list of all of the social links you want to link on your portfolio site: your Github (pimp it with our tuto 👇), Medium, LinkedIn, Instagram, etc.
-- Pick a domain name for your site and purchase it. Useful tips: use a .com, .me, .tech, or a .io domain. Do not use .co as it often gets flagged as spam
-- Fork 🍴 your Final projects, your Airbnb projects, Mr. Cocktail, any others and clean up the front end.
-- Take a screenshot of your products’ landing page.
-- Do a one paragraph write-up describing the challenges and solutions of the project. This can be as simple as the product card on the Kitt products page
+- Set your career calendar and astructure your days moving forward: 
+    > 1️⃣ hour for job search
+    >
+    > 1️⃣ hour for emails
+    >
+    > 4️⃣-6️⃣ hour for coding
 
-_For bonus points:_ Take a video of your journey to upload to your site (this will be useful to share with potential clients too!)
+- Search for jobs, recruiting agencies and networking meetups to attend on [our Job Board list](https://docs.google.com/document/d/1nJ3WbTNKk8Rhc8PhkXhD2LUmV22ShDwT9evWEZBUuZY/edit?usp=sharing)
+- Read our 4 teachers/alumnis articles ✍️ about landing a Job in Tokyo👇

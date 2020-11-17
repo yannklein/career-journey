@@ -4,7 +4,7 @@ Step.destroy_all
 
 resource_type = {
   video: "📺",
-  document: "📄",
+  article: "✍️",
   slides: "🎙",
   website: "💻",
   book: "📕",
@@ -84,6 +84,12 @@ step4 = Step.create(
   description: File.open("#{steps_path}/step4.md").read,
   step_number: 4
 )
+
+Resource.create(res_type: resource_type[:slides], description: "Your first job (slides)", name: "Tips and advises to prepare your first job landing.", step: step4, url: "https://lewagon-alumni.slack.com/files/U3NU6FH7C/FV8QM9M50/lw_tokyo_-_landing_a_job.pdf?origin_team=T02NE0241&origin_channel=CV5L8RC3D")
+
+Resource.create(res_type: resource_type[:article], step: step4, name: "First job as a dev" , description: "Article by Paulo D'Alberti that TAed with you", url: "https://medium.com/@phdalberti/landing-your-first-job-as-a-dev-in-tokyo-after-le-wagon-1692909e6678")
+Resource.create(res_type: resource_type[:article], step: step4, name: "How to find web dev jobs in Tokyo" , description: "Article by Sylvain", url: "https://medium.com/le-wagon/how-to-find-your-first-web-developer-job-in-tokyo-4b565f0aeac3")
+Resource.create(res_type: resource_type[:article], step: step4, name: "Myths and reality of working in Tokyo as a dev" , description: "Article by Rob Sherling (freelancer in Japan)", url: "https://dev.to/rob117/working-in-japan-myths-realities-compensation-culture-by-a-software-engineer-2lh")
 
 step5 = Step.create(
   title: "Tech interview & coding after Le Wagon",
