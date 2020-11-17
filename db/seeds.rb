@@ -86,6 +86,7 @@ step4 = Step.create(
 )
 
 Resource.create(res_type: resource_type[:slides], description: "Your first job (slides)", name: "Tips and advises to prepare your first job landing.", step: step4, url: "https://lewagon-alumni.slack.com/files/U3NU6FH7C/FV8QM9M50/lw_tokyo_-_landing_a_job.pdf?origin_team=T02NE0241&origin_channel=CV5L8RC3D")
+Resource.create(res_type: resource_type[:video], description: "Your first job (slides)", name: "Tips and advises to prepare your first job landing.", step: step4, url: "https://lewagon-alumni.slack.com/files/U4APKLFLM/F019NEQ6X7Y/computer_futures.mp4")
 
 Resource.create(res_type: resource_type[:article], step: step4, name: "First job as a dev" , description: "Article by Paulo D'Alberti that TAed with you", url: "https://medium.com/@phdalberti/landing-your-first-job-as-a-dev-in-tokyo-after-le-wagon-1692909e6678")
 Resource.create(res_type: resource_type[:article], step: step4, name: "How to find web dev jobs in Tokyo" , description: "Article by Sylvain", url: "https://medium.com/le-wagon/how-to-find-your-first-web-developer-job-in-tokyo-4b565f0aeac3")
@@ -93,10 +94,36 @@ Resource.create(res_type: resource_type[:article], step: step4, name: "Myths and
 
 step5 = Step.create(
   title: "Tech interview & coding after Le Wagon",
-  video: "https://www.youtube.com/watch?v=ZAw1F5wDyko",
+  video: "ZAw1F5wDyko",
   description: File.open("#{steps_path}/step5.md").read,
   step_number: 5
 )
+
+Resource.create(res_type: resource_type[:slides], name: "Technical Interview (slides)", description: "How to prepare for the technical interview", step: step5, url: "https://lewagon-alumni.slack.com/files/UFN01H4F7/F019C84MHDZ/technical_interviews.pdf")
+Resource.create(res_type: resource_type[:slides], name: "What to learn after LW", description: "The ultimate guide for your post-LW life", step: step5, url: "https://lewagon-alumni.slack.com/files/U4APKLFLM/FRAV93EQ6/what_to_learn_after_le_wagon.pdf?origin_team=T02NE0241&origin_channel=CV5L8RC3D")
+Resource.create(res_type: resource_type[:book], name: "Cracking the Coding Interview", description: "The reference for dev tech interviews", step: step5, url: "https://lewagon-alumni.slack.com/files/U4APKLFLM/F0198C3JVDG/cracking_the_coding_interview.pdf")
+Resource.create(res_type: resource_type[:other], name: "What to learn after LW", description: "The ultimate guide for your post-LW life", step: step5, url: "https://lewagon-alumni.slack.com/files/U4APKLFLM/FR8P4J5GQ/technical_interview_resources.pdf")
+Resource.create(res_type: resource_type[:video], name: "How to nail your hiring interview?", description: "Talk with Le Wagon alumni", step: step5, url: "https://www.youtube.com/watch?v=NDAYZFB2viQ")
+
+step6 = Step.create(
+  title: "Intro to Freelancing",
+  video: "y_VYKu5xB1o",
+  description: File.open("#{steps_path}/step6.md").read,
+  step_number: 6
+)
+
+Resource.create(res_type: resource_type[:other], name: "Career Playbook: Freelancing", description: "The LW Carer playbook about Freelancing", step: step6, url: "https://github.com/lewagon/career/blob/master/articles/freelancer.md")
+
+step7 = Step.create(
+  title: "Intro to React",
+  video: "Fq1cSWPUvn4",
+  description: File.open("#{steps_path}/step7.md").read,
+  step_number: 7
+)
+
+Resource.create(res_type: resource_type[:video], name: "React preparation video", description: "A video to link what you learn during the bootcamp and the LW React track", step: step7, url: "https://kitt.lewagon.com/knowledge/tracks/react-redux?path=01-React%2F01-Tooling&section=lecture")
+Resource.create(res_type: resource_type[:website], name: "React boilerplate", description: "Boilerplate to kickstart your code", step: step7, url: "https://github.com/yannklein/react-workshop")
+
 
 # puts "Admin creation"
 User.create(email: "yann.klein@me.com", step: step1, name: "Yann Klein", batch: 465, github_account: "yannklein", password: ENV['ADMIN_PWD'], admin: true, completed: true)
