@@ -56,7 +56,7 @@ class User < ApplicationRecord
     users_path = Rails.root.join('db/users')
     serialized_users = File.read("#{users_path}/students.json")
     users = JSON.parse(serialized_users)['users']
-    this_user = users.select { |user| user['alumnus']["github"] == gh_account }.first['alumnus']
-    this_user ? this_user['camp_slug'].to_i : 0
+    this_user = users.select { |user| user['alumnus']["github"] == gh_account }.first
+    this_user ? this_user['alumnus']['camp_slug'].to_i : 0
   end
 end
