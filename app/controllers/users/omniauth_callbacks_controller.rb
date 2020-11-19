@@ -15,6 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       session["devise.user_attributes"] = @user.attributes
       puts @user.errors
+      flash.notice = "Looks like you're not a Tokyo LW alumni 😵 If you actually are, contact us: yann.klein@lewagon.org"
       redirect_to new_user_session_path
     end
   end

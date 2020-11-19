@@ -271,11 +271,18 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :github,
-                  ENV['GITHUB_APP_ID'],
-                  ENV['GITHUB_APP_SECRET'],
-                  scope: 'user,public_repo'
-  OmniAuth.config.logger = Rails.logger if Rails.env.development?
+  if Rails.env.development?
+    config.omniauth :github,
+                    ENV['GITHUB_APP_ID_DEV'],
+                    ENV['GITHUB_APP_SECRET_DEV'],
+                    scope: 'user,public_repo'
+    OmniAuth.config.logger = Rails.logger if Rails.env.development?
+  else
+    config.omniauth :github,
+                    ENV['GITHUB_APP_ID'],
+                    ENV['GITHUB_APP_SECRET'],
+                    scope: 'user,public_repo'
+  end
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
