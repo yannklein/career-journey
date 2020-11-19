@@ -56,7 +56,9 @@ export default {
           }
         }`
       }).then((data) => {
+        console.log("mutation data:", data);
         this.currentStep.stepNumber = nextStepNb;
+        store.setSelectedStepAction(data.data.updateUserStepId.stepId);
       }).catch((error) => {
         console.error(error)
       })
