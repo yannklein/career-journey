@@ -207,9 +207,12 @@ export default {
   }
 
   .btn-done {
-    margin-bottom: 24px;
-    padding: 8px 16px;
-    width: max-content;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    border-radius: 0px;
+    text-align: center;
   }
 
   .step-video-laptop {
