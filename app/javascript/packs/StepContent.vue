@@ -4,10 +4,11 @@
       <div class="step-body" v-if="step && step.stepNumber">
         <div class="step-title">
           <h1>Step {{step.stepNumber}} - {{step.title}}</h1>
-          <div class="btn-done no" v-on:click="moveToStep(step.stepNumber + 1)" v-if="step.stepNumber >= currentStep.stepNumber && !currentUser.completed">Finished!</div>
+          <div class="btn-done no" v-on:click="moveToStep(step.stepNumber + 1)" v-if="step.stepNumber >= currentStep.stepNumber && !currentUser.completed">Mark as done ✔</div>
           <div v-else>
-            <div class="btn-done yes">Done ✔</div>
-            <div v-on:click="moveToStep(step.stepNumber)" class="btn-cancel">Cancel?</div>
+            <div class="btn-done yes">
+              Done <span v-on:click="moveToStep(step.stepNumber)" class="btn-cancel">Cancel?</span>
+            </div>
           </div>
         </div>
         <div class="step-video" v-if="step.video">
@@ -168,15 +169,18 @@ export default {
 }
 
 .btn-done {
-  padding: 16px 24px;
+  padding: 12px 16px;
   border-radius: 8px;
   min-width: max-content;
   color: white;
-  font-size: 16px;
+  font-size: 20px;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
 }
 
 .btn-done.no {
-  background-image: linear-gradient(#00B600, #00C900);
+  background-image: linear-gradient(90deg, green, 56%, #00B600);
   box-shadow: 0 0 4px rgba(0,175,0,0.4);
   cursor: pointer;
 }
@@ -188,7 +192,6 @@ export default {
 .btn-cancel {
   color: lightgray;
   font-size: 16px;
-  padding: 0 24px;
   min-width: max-content;
   cursor: pointer;
 }
