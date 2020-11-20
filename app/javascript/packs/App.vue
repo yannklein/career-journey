@@ -63,4 +63,11 @@ p {
     grid-gap: 16px;
   }
 }
+
+@media (max-width: 576px) {
+  .app-body {
+    grid-template-columns: auto;
+  }
+}
+
 </style>

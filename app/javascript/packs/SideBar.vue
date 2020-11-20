@@ -162,6 +162,10 @@ export default {
     min-width: auto;
     width: auto;
     top: 8px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: none;
+    background-color: transparent;
   }
   .step-title, .step-checked {
     display: none;
