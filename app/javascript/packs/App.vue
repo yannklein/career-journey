@@ -57,11 +57,10 @@ p {
   padding: 32px;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media (max-width: 576px) {
+@media (max-width: 1000px) {
   .app-body {
-    padding: 8px;
-    grid-gap: 8px;
+    padding: 16px;
+    grid-gap: 16px;
   }
 }
 </style>

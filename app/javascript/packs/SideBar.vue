@@ -124,6 +124,39 @@ export default {
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 1000px) {
+  .step-list {
+    width: 268px;
+  }
+  .step-item {
+    padding: 8px 8px;
+    font-size: 16px;
+  }
+  .step-title {
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 800px) {
+  .step-list {
+    min-width: auto;
+    width: auto;
+    top: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    font-size: 20px;
+    background-color: white;
+  }
+  .step-title, .step-checked {
+    display: none;
+  }
+  .step-item {
+    box-shadow: none;
+    background-color: transparent;
+    margin: 0;
+  }
+}
+
 @media (max-width: 576px) {
   .step-list {
     min-width: auto;
@@ -134,12 +167,11 @@ export default {
     display: none;
   }
   .step-item {
-    padding: 0;
+    padding: 4px;
     box-shadow: none;
     font-size: 20px;
     background-color: transparent;
     margin: 0px;
-    margin-bottom: 8px;
   }
 }
 </style>
