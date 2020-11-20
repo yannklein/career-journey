@@ -200,6 +200,12 @@ export default {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media (max-width: 576px) {
+
+  .main-container {
+    overflow-y: scroll;
+    width: calc(100vw - 32px);
+  }
+
   .step-title {
     display: block;
   }
