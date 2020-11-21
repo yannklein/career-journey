@@ -156,7 +156,7 @@ export default {
   padding: 0;
   margin: 8px 0;
   background-color: white;
-  padding: 16px;
+  padding: 16px 0;
   width: max-content;
   box-shadow: 0 0 16px rgba(0,0,0,0.1);
   text-align: right;
@@ -166,7 +166,7 @@ export default {
 }
 
 .app-navbar-profile li a{
-  margin: 4px;
+  margin: 4px 16px;
   font-size: 16px;
 }
 
