@@ -275,13 +275,13 @@ Devise.setup do |config|
     config.omniauth :github,
                     ENV['GITHUB_APP_ID_DEV'],
                     ENV['GITHUB_APP_SECRET_DEV'],
-                    scope: 'user,public_repo'
+                    scope: 'read:user, user:email'
     OmniAuth.config.logger = Rails.logger if Rails.env.development?
   else
     config.omniauth :github,
                     ENV['GITHUB_APP_ID'],
                     ENV['GITHUB_APP_SECRET'],
-                    scope: 'user,public_repo'
+                    scope: 'read:user, user:email'
   end
 
   # ==> Warden configuration
