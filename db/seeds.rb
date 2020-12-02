@@ -49,7 +49,7 @@ Resource.create(
 
 step2 = Step.create(
   title: "Github and portfolio preparation",
-  video: nil,
+  video: "",
   description: File.open("#{steps_path}/step2.md").read,
   step_number: 2
 )
@@ -73,7 +73,7 @@ Resource.create(res_type: resource_type[:website], description: "A portfolio exa
 
 step3 = Step.create(
   title: "Build your portfolio",
-  video: "",
+  video: "Q5ziDC-wkFA",
   description: File.open("#{steps_path}/step3.md").read,
   step_number: 3
 )
