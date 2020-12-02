@@ -9,6 +9,6 @@ So far, we’ve talked about building CVs, LinkedIn, and creating a personal por
     >
     > 4️⃣-6️⃣ hour for coding
 
-- Search for jobs, recruiting agencies and networking meetups to attend on [our Job Board list](https://docs.google.com/document/d/1nJ3WbTNKk8Rhc8PhkXhD2LUmV22ShDwT9evWEZBUuZY/edit?usp=sharing)
+- Search for jobs, recruiting agencies and networking meetups to attend on [our Job Board list](https://docs.google.com/spreadsheets/d/1HZVa1Q_Tw8dKMfzcJNtMQmgta75vwnFh2l9ubhw6yfg/edit?usp=sharing)
 - Read our 4 teachers/alumnis articles ✍️ about landing a Job in Tokyo👇
 - Watch the talk of Computer Futures, our partner recruiting agency, about tech jobs in Japan 👇
