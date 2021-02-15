@@ -8,13 +8,14 @@
       <div class="app-navbar-section">
         <div class="app-navbar-menu">
           <div class="app-navbar-link" v-on:click=displayStep(currentStep.id)>Current step</div>
-          <a class="app-navbar-link" href="https://lewagon-alumni.slack.com/archives/DFNR75GT1" target=_blank>Contact us</a>
+          <a class="app-navbar-link" href="https://lewagonjapan.typeform.com/to/OI1ihm" target=_blank>Book a job coaching</a>
         </div>
         <div class="app-navbar-profile" v-on:click="openMenu($event)">
           <img :src="avatarSrc" alt="">
           <ul>
             <li><a class="app-navbar-link" :href="'https://kitt.lewagon.com/camps/' + currentUser.batch">To Kitt</a></li>
             <li><a class="app-navbar-link" :href="'https://lewagon-alumni.slack.com/app_redirect?channel=batch-' + currentUser.batch + '-tokyo'">Batch Slack</a></li>
+            <li><a class="app-navbar-link" href="https://lewagonjapan.typeform.com/to/OI1ihm" target=_blank>Book a job coaching</a></li>
             <li><a class="app-navbar-link" href="https://lewagon-alumni.slack.com/archives/DFNR75GT1" target=_blank>Contact us</a></li>
             <li><a class="app-navbar-link" rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a></li>
           </ul>
@@ -132,7 +133,7 @@ export default {
 }
 
 .app-navbar-menu a {
-  margin: 0 16px;
+  margin-left: 24px;
 }
 
 .app-navbar-profile {
@@ -175,6 +176,12 @@ export default {
   visibility: visible;
 }
 
+@media (max-width: 800px) {
+  .app-navbar-menu {
+    display: none;
+  }
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media (max-width: 576px) {
   .app-navbar {
@@ -183,10 +190,6 @@ export default {
 
   .app-navbar-brand {
     font-size: 20px;
-  }
-
-  .app-navbar-menu {
-    display: none;
   }
 
   .app-navbar-logo {
