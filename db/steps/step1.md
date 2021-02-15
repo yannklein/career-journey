@@ -2,7 +2,7 @@
 
 ### Your CV
 - Build your CV - follow the slides for best practices 💅  
-- Feel free to ask one of your teachers and/or batchmates to review your CV 📝
+- Feel free to ask one of your teachers and/or batchmates to review your CV 📝 You can even post it on your batch channel to get multiple feedbacks.
 - Upload it in this [Google folder](https://drive.google.com/drive/folders/1y9a1EuUxhSni43gajMT6-Mss3eqCWQUD?usp=sharing) for us to share it with our recruiting contacts
 
 ### Your [LinkedIn](https://www.linkedin.com/in/)
