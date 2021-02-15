@@ -24,6 +24,8 @@ gem 'redis', '~> 4.0'
 
 gem 'rails_admin', '~> 2.0'
 
+gem 'blazer'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
