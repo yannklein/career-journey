@@ -13,6 +13,10 @@ class User < ApplicationRecord
           :omniauth_providers => [:github]
   before_validation :adjust_email, on: :create
 
+  def step_id
+    career_step_id
+  end
+
   def self.from_omniauth(auth)
     puts auth.info.email
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

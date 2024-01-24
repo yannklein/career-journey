@@ -9,9 +9,9 @@ module Mutations
     def resolve(stepNb: 0)
       my_user = context[:current_user]
       if stepNb > Step.maximum("step_number")
-        my_user.update!(completed: true)
+        my_user.update(completed: true)
       else
-        my_user.update!(step_id: Step.find_by(step_number: stepNb).id, completed: false)
+        my_user.update(step: Step.find_by(step_number: stepNb), completed: false)
       end
       context[:current_user]
     end
