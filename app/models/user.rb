@@ -1,7 +1,8 @@
 class User < ApplicationRecord
+  self.table_name = "career_users"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable, :registerable and :omniauthable
-  belongs_to :step
+  belongs_to :step, foreign_key: "career_step_id"
   devise  :database_authenticatable,
           :recoverable,
           :rememberable,
