@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/yannklein/arte-jr-suber">
+  <a href="https://github.com/yannklein/career-journey">
     <img src="https://github.com/yannklein/career-journey/assets/26819547/477adaea-43b2-4f6a-b767-01df3136ac34">
   </a>
 
