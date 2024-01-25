@@ -100,10 +100,11 @@ This project needs a environment with ruby and `bundler` installed.
    bundle install
    yarn install
    ```
-2. Run the server:
+2. Migrate the db, populate it and run the server:
    ```sh
+   rails db:migrate db:seed
    rails s
-   ``` 
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
