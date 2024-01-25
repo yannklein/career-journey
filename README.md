@@ -16,9 +16,9 @@
     ·
     <a href="https://career-journey.herokuapp.com/">Live Website</a>
     .
-    <a href="https://github.com/yannklein/arte-jr-suber/issues">Report Bug</a>
+    <a href="https://github.com/yannklein/nanikiro/issues">Report Bug</a>
     ·
-    <a href="https://github.com/yannklein/arte-jr-suber/issues">Request Feature</a>
+    <a href="https://github.com/yannklein/nanikiro/issues">Request Feature</a>
   </p>
 </div>
 
